@@ -1,0 +1,40 @@
+service: jas
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ${opt:region, 'us-east-1'}
+  environment:
+    NODE_ENV: dev
+  layers:
+    - arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:22
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-prune-plugin
+
+custom:
+  prune:
+    automatic: true
+    includeLayers: true
+    number: 3
+
+package:
+  exclude:
+    - node_modules/puppeteer/.local-chromium/** # exclude puppeteer chrome if exists
+
+functions:
+  jas:
+    handler: app/handler.jas
+    events:
+      - http:
+          path: /
+          method: get
+
+resources:
+  Resources:
+    ApiGatewayRestApi:
+      Properties:
+        BinaryMediaTypes:
+          - "image/png"

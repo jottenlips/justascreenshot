@@ -1,0 +1,6 @@
+node_modules
+.DS_STORE
+test.png
+.env.dev
+.build
+.serverless
