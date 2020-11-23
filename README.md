@@ -13,7 +13,7 @@ This is a microservice that takes screenshots of any webpage and responds with t
 
 ## Deploy
 
-Setup your AWS Credentials, or configure for your preferred cloud provider.
+Setup your AWS Credentials.
 
 `yarn install -g serverless`
 
