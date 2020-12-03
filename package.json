@@ -13,7 +13,9 @@
     "@types/puppeteer-core": "^2.0.0",
     "chrome-aws-lambda": "^5.3.1",
     "dotenv": "^8.2.0",
+    "global": "^4.4.0",
     "puppeteer-core": "^5.5.0",
+    "saasify": "^1.20.8",
     "serverless": "^2.11.1"
   },
   "devDependencies": {
